@@ -79,6 +79,11 @@ public class Features {
 	private boolean isSuspendTerm;
 	
 	/**
+	 * Class attribute
+	 */
+	private boolean isPhishing;
+	
+	/**
 	 * A weight that is assigned to each email and represents
 	 * the sum of weights of the phishing terms that exists in that email
 	 */
@@ -210,6 +215,76 @@ public class Features {
 
 	public void setPhishingTermsWeight(int phishingTermsWeight) {
 		this.phishingTermsWeight = phishingTermsWeight;
+	}
+	
+	public boolean isPhishing() {
+		return isPhishing;
+	}
+
+	public void setPhishing(boolean isPhishing) {
+		this.isPhishing = isPhishing;
+	}
+	
+	public String[] fieldNames() {
+		String[] fieldNames = new String[17];
+		fieldNames[0] = "htmlBody";
+		fieldNames[1] = "hexadecimalURLs";
+		fieldNames[2] = "domainsCount";
+		fieldNames[3] = "textLinkDifference";
+		fieldNames[4] = "dotsCount";
+		fieldNames[5] = "isAccountTerm";
+		fieldNames[6] = "isDearTeam";
+		fieldNames[7] = "imagesAsURL";
+		fieldNames[8] = "ipUrls";
+		fieldNames[9] = "isPayPalTerm";
+		fieldNames[10] = "isLoginTerm";
+		fieldNames[11] = "isBankTerm";
+		fieldNames[12] = "isVerifyTerm";
+		fieldNames[13] = "isAgreeTerm";
+		fieldNames[14] = "isSuspendTerm";
+		fieldNames[15] = "phishingTermsWeight";
+		fieldNames[16] = "isPhishing";
+		return fieldNames;
+	}
+	
+	public String[] toArray() {
+		String[] featuresArr = new String[17];
+		// htmlBody
+		featuresArr[0] = this.htmlBody ? "1" : "0";
+		// hexadecimalURLs
+		featuresArr[1] = String.valueOf(this.hexadecimalURLs);
+		// domainsCount
+		featuresArr[2] = String.valueOf(this.domainsCount);
+		// textLinkDifference
+		featuresArr[3] = String.valueOf(this.textLinkDifference);
+		// dotsCount
+		featuresArr[4] = String.valueOf(this.dotsCount);
+		// isAccountTerm
+		featuresArr[5] = this.isAccountTerm ? "1" : "0";
+		// isDearTeam
+		featuresArr[6] = this.isDearTeam ? "1" : "0";
+		// imagesAsURL
+		featuresArr[7] = String.valueOf(this.imagesAsURL);
+		// ipUrls
+		featuresArr[8] = String.valueOf(this.ipUrls);
+		// isPayPalTerm
+		featuresArr[9] = this.isPayPalTerm ? "1" : "0";
+		// isLoginTerm
+		featuresArr[10] = this.isLoginTerm ? "1" : "0";
+		// isBankTerm
+		featuresArr[11] = this.isBankTerm ? "1" : "0";
+		// isVerifyTerm
+		featuresArr[12] = this.isVerifyTerm ? "1" : "0";
+		// isAgreeTerm
+		featuresArr[13] = this.isAgreeTerm ? "1" : "0";
+		// isSuspendTerm
+		featuresArr[14] = this.isSuspendTerm ? "1" : "0";
+		// phishingTermsWeight
+		featuresArr[15] = String.valueOf(this.phishingTermsWeight);
+		// Class field
+		featuresArr[16] = this.isPhishing ? "1" : "0";
+		
+		return featuresArr;
 	}
 	
 

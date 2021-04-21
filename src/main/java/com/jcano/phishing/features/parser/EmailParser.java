@@ -13,13 +13,13 @@ public class EmailParser extends MimeStreamParser {
 	
 	private ContentHandler contentHandler;
 	
-	private void parseFile(String filePath) throws FileNotFoundException, MimeException, IOException {
+	private void parseFile(String filePath) throws FileNotFoundException, MimeException, IOException, StackOverflowError {
 		contentHandler = new ContentHandler();
 		this.setContentHandler(contentHandler);
-		this.parse(new FileInputStream(filePath + "/" + "00004.864220c5b6930b209cc287c361c99af1"));
+		this.parse(new FileInputStream(filePath));
 	}
 	
-	public Features getEmailFeatures(String filePath) throws FileNotFoundException, MimeException, IOException {
+	public Features getEmailFeatures(String filePath) throws FileNotFoundException, MimeException, IOException, StackOverflowError {
 		this.parseFile(filePath);
 		return contentHandler.getFeatures();
 	}
